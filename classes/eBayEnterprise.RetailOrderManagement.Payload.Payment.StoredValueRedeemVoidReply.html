@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/eBayEnterprise.html">\eBayEnterprise</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">638</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-2100777821"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-2100777821" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-976697842"></a>
+                                <a href="../namespaces/eBayEnterprise.html" style="margin-left: 30px; padding-left: 0">eBayEnterprise</a>
+            </div>
+            <div id="namespace-976697842" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1360415446"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.html" style="margin-left: 30px; padding-left: 0">RetailOrderManagement</a>
+            </div>
+            <div id="namespace-1360415446" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1398327604"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Api.html" style="margin-left: 30px; padding-left: 0">Api</a>
+            </div>
+            <div id="namespace-1398327604" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-396286414"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Api.Amqp.html" style="margin-left: 30px; padding-left: 0">Amqp</a>
+            </div>
+            <div id="namespace-396286414" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.IConnectionConfig.html">IConnectionConfig</a></li>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.AbstractConnectionConfig.html">AbstractConnectionConfig</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.ConnectionConfig.html">ConnectionConfig</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.SslConnectionConfig.html">SslConnectionConfig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1451970162"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Api.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1451970162" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.ConnectionError.html">ConnectionError</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.NetworkError.html">NetworkError</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.UnsupportedHttpAction.html">UnsupportedHttpAction</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.UnsupportedOperation.html">UnsupportedOperation</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IAmqpApi.html">IAmqpApi</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IAmqpConfig.html">IAmqpConfig</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IApi.html">IApi</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IBidirectionalApi.html">IBidirectionalApi</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IConfig.html">IConfig</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IHttpConfig.html">IHttpConfig</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IOmnidirectionalApi.html">IOmnidirectionalApi</a></li>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.AmqpApi.html">AmqpApi</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.AmqpConfig.html">AmqpConfig</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.HttpApi.html">HttpApi</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.HttpConfig.html">HttpConfig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-727556057"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.html" style="margin-left: 30px; padding-left: 0">Payload</a>
+            </div>
+            <div id="namespace-727556057" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-721196198"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-721196198" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.InvalidPayload.html">InvalidPayload</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.Payload.html">Payload</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.UnexpectedResponse.html">UnexpectedResponse</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.UnsupportedPayload.html">UnsupportedPayload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-546423197"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.html" style="margin-left: 30px; padding-left: 0">OrderEvents</a>
+            </div>
+            <div id="namespace-546423197" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderEvent.html">IOrderEvent</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderRejected.html">IOrderRejected</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITestMessage.html">ITestMessage</a></li>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderRejected.html">OrderRejected</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TestMessage.html">TestMessage</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1348063911"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Payment.html" style="margin-left: 30px; padding-left: 0">Payment</a>
+            </div>
+            <div id="namespace-1348063911" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IBillingAddress.html">IBillingAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICreditCardAuth.html">ICreditCardAuth</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICreditCardAuthReply.html">ICreditCardAuthReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICreditCardAuthRequest.html">ICreditCardAuthRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICurrencyCode.html">ICurrencyCode</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ILineItem.html">ILineItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ILineItemContainer.html">ILineItemContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ILineItemIterable.html">ILineItemIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IOrderId.html">IOrderId</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPaymentAccountUniqueId.html">IPaymentAccountUniqueId</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPaymentContext.html">IPaymentContext</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPaymentInfo.html">IPaymentInfo</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoAuthorization.html">IPayPalDoAuthorization</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoAuthorizationReply.html">IPayPalDoAuthorizationReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoAuthorizationRequest.html">IPayPalDoAuthorizationRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoExpressCheckout.html">IPayPalDoExpressCheckout</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoExpressCheckoutReply.html">IPayPalDoExpressCheckoutReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoExpressCheckoutRequest.html">IPayPalDoExpressCheckoutRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoVoid.html">IPayPalDoVoid</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoVoidReply.html">IPayPalDoVoidReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoVoidRequest.html">IPayPalDoVoidRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalGetExpressCheckout.html">IPayPalGetExpressCheckout</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalGetExpressCheckoutReply.html">IPayPalGetExpressCheckoutReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalGetExpressCheckoutRequest.html">IPayPalGetExpressCheckoutRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalSetExpressCheckout.html">IPayPalSetExpressCheckout</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalSetExpressCheckoutReply.html">IPayPalSetExpressCheckoutReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalSetExpressCheckoutRequest.html">IPayPalSetExpressCheckoutRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IShippingAddress.html">IShippingAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueBalance.html">IStoredValueBalance</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueBalanceReply.html">IStoredValueBalanceReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueBalanceRequest.html">IStoredValueBalanceRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeem.html">IStoredValueRedeem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemReply.html">IStoredValueRedeemReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemRequest.html">IStoredValueRedeemRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemVoid.html">IStoredValueRedeemVoid</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemVoidReply.html">IStoredValueRedeemVoidReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemVoidRequest.html">IStoredValueRedeemVoidRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IToken.html">IToken</a></li>
+                                                                            <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TAmount.html">TAmount</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TBillingAddress.html">TBillingAddress</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TCurrencyCode.html">TCurrencyCode</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TOrderId.html">TOrderId</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentAccountUniqueId.html">TPaymentAccountUniqueId</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentContext.html">TPaymentContext</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentInfo.html">TPaymentInfo</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TShippingAddress.html">TShippingAddress</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TStrings.html">TStrings</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TToken.html">TToken</a></li>
+                                                                            <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.CreditCardAuthReply.html">CreditCardAuthReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.CreditCardAuthRequest.html">CreditCardAuthRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.LineItem.html">LineItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.LineItemIterable.html">LineItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoAuthorizationReply.html">PayPalDoAuthorizationReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoAuthorizationRequest.html">PayPalDoAuthorizationRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoExpressCheckoutReply.html">PayPalDoExpressCheckoutReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoExpressCheckoutRequest.html">PayPalDoExpressCheckoutRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoVoidReply.html">PayPalDoVoidReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoVoidRequest.html">PayPalDoVoidRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalGetExpressCheckoutReply.html">PayPalGetExpressCheckoutReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalGetExpressCheckoutRequest.html">PayPalGetExpressCheckoutRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalSetExpressCheckoutReply.html">PayPalSetExpressCheckoutReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalSetExpressCheckoutRequest.html">PayPalSetExpressCheckoutRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueBalanceReply.html">StoredValueBalanceReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueBalanceRequest.html">StoredValueBalanceRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemReply.html">StoredValueRedeemReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemRequest.html">StoredValueRedeemRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html">StoredValueRedeemVoidReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidRequest.html">StoredValueRedeemVoidRequest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-648381346"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Validator.html" style="margin-left: 30px; padding-left: 0">Validator</a>
+            </div>
+            <div id="namespace-648381346" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.OptionalGroup.html">OptionalGroup</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.RequiredFields.html">RequiredFields</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.XsdSchemaValidator.html">XsdSchemaValidator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IBidirectionalMessageFactory.html">IBidirectionalMessageFactory</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IMessageFactory.html">IMessageFactory</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayload.html">IPayload</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayloadFactory.html">IPayloadFactory</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayloadIterator.html">IPayloadIterator</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayloadMap.html">IPayloadMap</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.ISchemaValidator.html">ISchemaValidator</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IValidator.html">IValidator</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IValidatorIterator.html">IValidatorIterator</a></li>
+                                                                            <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html">TPayload</a></li>
+                                                                            <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.AmqpPayloadIterator.html">AmqpPayloadIterator</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.BidirectionalMessageFactory.html">BidirectionalMessageFactory</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OmnidirectionalMessageFactory.html">OmnidirectionalMessageFactory</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.PayloadFactory.html">PayloadFactory</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.PayloadMap.html">PayloadMap</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.ValidatorIterator.html">ValidatorIterator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Payment.html">\eBayEnterprise\RetailOrderManagement\Payload\Payment</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\eBayEnterprise\RetailOrderManagement\Payload\Payment</small>StoredValueRedeemVoidReply</h1>
+                    <p><em>StoredValueRedeemVoidReply Payload</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_deserialize" class="">deserialize()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_validate" class="">validate()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_serialize" class="">serialize()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_wasVoided" class="">wasVoided()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_getResponseCode" class="">getResponseCode()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_setResponseCode" class="">setResponseCode()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_schemaValidate" class="">schemaValidate()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_getSchemaFile" class="">getSchemaFile()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_getPayloadAsXPath" class="">getPayloadAsXPath()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_getPayloadAsDoc" class="">getPayloadAsDoc()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_getXmlNamespace" class="">getXmlNamespace()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_addressLinesFromXPath" class="">addressLinesFromXPath()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_deserializeLineItems" class="">deserializeLineItems()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_getRootNodeName" class="">getRootNodeName()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_serializeRootAttributes" class="">serializeRootAttributes()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#method_getRootAttributes" class="">getRootAttributes()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_serializeContents" class="">serializeContents()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentContext.html#method_serializePaymentContext" class="">serializePaymentContext()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#method_serializeResponseCode" class="">serializeResponseCode()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#property_schemaValidator" class="">$schemaValidator</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#property_validators" class="">$validators</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#property_extractionPaths" class="">$extractionPaths</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#property_optionalExtractionPaths" class="">$optionalExtractionPaths</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#property_booleanExtractionPaths" class="">$booleanExtractionPaths</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html#property_addressLinesExtractionMap" class="">$addressLinesExtractionMap</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#property_responseCode" class="">$responseCode</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html#property_successResponseCodes" class="">$successResponseCodes</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Payload.Payment.StoredValueRedeemVoidReply.html"><div class="path-wrapper">Payload/Payment/StoredValueRedeemVoidReply.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Payload\Payment</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\Payment\StoredValueRedeemVoidReply</div>
+                            </dd>
+
+                                                                            <dt>Implements</dt>
+                                                        <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemVoidReply.html"><div class="namespace-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\Payment\IStoredValueRedeemVoidReply</div></a></dd>
+                        
+                                                                                    <dt>Uses traits</dt>
+                                                        <dd>
+                                <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html">                                    <div class="namespace-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div>
+                                </a>                            </dd>
+                                                                                <dd>
+                                <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentContext.html">                                    <div class="namespace-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\Payment\TPaymentContext</div>
+                                </a>                            </dd>
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_schemaValidator" name="property_schemaValidator" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$schemaValidator</h3>
+                <pre class="signature">$schemaValidator : \eBayEnterprise\RetailOrderManagement\Payload\ISchemaValidator</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.ISchemaValidator.html">\eBayEnterprise\RetailOrderManagement\Payload\ISchemaValidator</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_validators" name="property_validators" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$validators</h3>
+                <pre class="signature">$validators : \eBayEnterprise\RetailOrderManagement\Payload\IValidatorIterator</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IValidatorIterator.html">\eBayEnterprise\RetailOrderManagement\Payload\IValidatorIterator</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_extractionPaths" name="property_extractionPaths" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$extractionPaths</h3>
+                <pre class="signature">$extractionPaths : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; XPath expressions to extract required data from the serialized payload (XML)                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_optionalExtractionPaths" name="property_optionalExtractionPaths" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$optionalExtractionPaths</h3>
+                <pre class="signature">$optionalExtractionPaths : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_booleanExtractionPaths" name="property_booleanExtractionPaths" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$booleanExtractionPaths</h3>
+                <pre class="signature">$booleanExtractionPaths : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; property/XPath pairs that take boolean values                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_addressLinesExtractionMap" name="property_addressLinesExtractionMap" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$addressLinesExtractionMap</h3>
+                <pre class="signature">$addressLinesExtractionMap : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; pair address lines properties with xpaths for extraction                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_responseCode" name="property_responseCode" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$responseCode</h3>
+                <pre class="signature">$responseCode : </pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_successResponseCodes" name="property_successResponseCodes" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$successResponseCodes</h3>
+                <pre class="signature">$successResponseCodes : array</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                &mdash; response codes that are considered a success                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deserialize" name="method_deserialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deserialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deserialize(string  <span class="argument">$serializedPayload</span>) : $this</pre>
+                <p><em>Fill out this payload object with data from the supplied string.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$serializedPayload </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\eBayEnterprise\RetailOrderManagement\Payload\Exception\InvalidPayload</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_validate" name="method_validate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">validate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">validate() </pre>
+                <p><em>Validate that the payload meets the requirements
+for transmission. This can be over and above what
+is required for serialization.</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\eBayEnterprise\RetailOrderManagement\Payload\Exception\InvalidPayload</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_serialize" name="method_serialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">serialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">serialize() : string</pre>
+                <p><em>Return the string form of the payload data for transmission.</em></p>
+                <p>Validation is implied.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\eBayEnterprise\RetailOrderManagement\Payload\Exception\InvalidPayload</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\eBayEnterprise\RetailOrderManagement\Payload\IValidatorIterator  <span class="argument">$validators</span>, \eBayEnterprise\RetailOrderManagement\Payload\ISchemaValidator  <span class="argument">$schemaValidator</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IValidatorIterator.html">\eBayEnterprise\RetailOrderManagement\Payload\IValidatorIterator</a></td>
+                                <td>$validators </td>
+                                <td><p>Payload object validators</p></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.ISchemaValidator.html">\eBayEnterprise\RetailOrderManagement\Payload\ISchemaValidator</a></td>
+                                <td>$schemaValidator </td>
+                                <td><p>Serialized object schema validator</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_wasVoided" name="method_wasVoided" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">wasVoided()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">wasVoided() : boolean</pre>
+                <p><em>Whether the gift card redeem was successfully voided.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getResponseCode" name="method_getResponseCode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getResponseCode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getResponseCode() : string</pre>
+                <p><em>The amount to void.</em></p>
+                <p>xsd note: enumeration, pattern (Fail|Success|Timeout)
+return string</p>
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setResponseCode" name="method_setResponseCode" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setResponseCode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setResponseCode(  <span class="argument">$code</span>) : self</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$code </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    self
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_schemaValidate" name="method_schemaValidate" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">schemaValidate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">schemaValidate(string  <span class="argument">$serializedData</span>) : $this</pre>
+                <p><em>Validate the serialized data via the schema validator.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$serializedData </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSchemaFile" name="method_getSchemaFile" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getSchemaFile()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSchemaFile() : string</pre>
+                <p><em>Return the schema file path.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPayloadAsXPath" name="method_getPayloadAsXPath" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getPayloadAsXPath()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPayloadAsXPath(string  <span class="argument">$xmlString</span>) : \DOMXPath</pre>
+                <p><em>Load the payload XML into a DOMXPath for querying.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$xmlString </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \DOMXPath
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPayloadAsDoc" name="method_getPayloadAsDoc" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getPayloadAsDoc()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPayloadAsDoc(string  <span class="argument">$xmlString</span>) : \DOMDocument</pre>
+                <p><em>Load the payload XML into a DOMDocument</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$xmlString </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \DOMDocument
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getXmlNamespace" name="method_getXmlNamespace" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getXmlNamespace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getXmlNamespace() : string</pre>
+                <p><em>The XML namespace for the payload.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addressLinesFromXPath" name="method_addressLinesFromXPath" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">addressLinesFromXPath()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addressLinesFromXPath(\DOMXPath  <span class="argument">$domXPath</span>) </pre>
+                <p><em>Get Line1 through Line4 for an Address
+Find all of the nodes in the address node that
+start with &#039;Line&#039; and add their value to the
+proper address lines array</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\DOMXPath</td>
+                                <td>$domXPath </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deserializeLineItems" name="method_deserializeLineItems" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">deserializeLineItems()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deserializeLineItems(string  <span class="argument">$serializedPayload</span>) : self</pre>
+                <p><em>convert line item substrings into line item objects</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$serializedPayload </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    self
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRootNodeName" name="method_getRootNodeName" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getRootNodeName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRootNodeName() : string</pre>
+                <p><em>Return the name of the xml root node.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_serializeRootAttributes" name="method_serializeRootAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">serializeRootAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">serializeRootAttributes() </pre>
+                <p><em>Serialize Root Attributes</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRootAttributes" name="method_getRootAttributes" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getRootAttributes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRootAttributes() : array</pre>
+                <p><em>Name, value pairs of root attributes</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\TPayload</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_serializeContents" name="method_serializeContents" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">serializeContents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">serializeContents() : string</pre>
+                <p><em>Serialize the various parts of the payload into XML strings and
+simply concatenate them together.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_serializePaymentContext" name="method_serializePaymentContext" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">serializePaymentContext()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">serializePaymentContext() : string</pre>
+                <p><em>Create an XML string representing the PaymentContext nodes</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentContext.html"><div class="path-wrapper">\eBayEnterprise\RetailOrderManagement\Payload\Payment\TPaymentContext</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_serializeResponseCode" name="method_serializeResponseCode" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">serializeResponseCode()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">serializeResponseCode() : string</pre>
+                <p><em>Create an XML string representing the response code.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">StoredValueRedeemVoidReply.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Payload/Payment/StoredValueRedeemVoidReply.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/eBayEnterprise.html">\eBayEnterprise</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on December 4th, 2014 at 15:08.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
