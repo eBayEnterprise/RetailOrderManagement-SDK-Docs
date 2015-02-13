@@ -15,6 +15,7 @@
 
 namespace eBayEnterprise\RetailOrderManagement\Payload;
 
+use DateTime;
 use DOMDocument;
 use DOMXPath;
 use eBayEnterprise\RetailOrderManagement\Payload\Payment\TStrings;
@@ -29,10 +30,16 @@ trait TPayload
 {
     use TStrings;
 
+    /** @var IPayloadFactory */
+    protected $payloadFactory;
+    /** @var IPayloadMap */
+    protected $payloadMap;
     /** @var ISchemaValidator */
     protected $schemaValidator;
     /** @var IValidatorIterator */
     protected $validators;
+    /** @var IPayload */
+    protected $parentPayload;
     /** @var array XPath expressions to extract required data from the serialized payload (XML) */
     protected $extractionPaths = [];
     /** @var array */
@@ -41,6 +48,11 @@ trait TPayload
     protected $booleanExtractionPaths = [];
     /** @var array pair address lines properties with xpaths for extraction */
     protected $addressLinesExtractionMap = [];
+    /**
+     * @var array property/XPath pairs. if property is a payload, first node matched
+     *            will be deserialized by that payload
+     */
+    protected $subpayloadExtractionPaths = [];
 
     /**
      * Fill out this payload object with data from the supplied string.
@@ -73,6 +85,13 @@ trait TPayload
         }
         $this->addressLinesFromXPath($xpath);
         $this->deserializeLineItems($serializedPayload);
+        foreach ($this->subpayloadExtractionPaths as $property => $path) {
+            $foundNode = $xpath->query($path)->item(0);
+            if ($foundNode && $this->$property instanceof IPayload) {
+                $this->$property->deserialize($foundNode->C14N());
+            }
+        }
+        $this->deserializeExtra($serializedPayload);
         // payload is only valid if the unserialized data is also valid
         $this->validate();
         return $this;
@@ -86,17 +105,10 @@ trait TPayload
     protected function schemaValidate($serializedData)
     {
         if ($this->schemaValidator) {
-            $this->schemaValidator->validate($serializedData, $this->getSchemaFile());
+            $this->schemaValidator->validate($serializedData);
         }
         return $this;
     }
-
-    /**
-     * Return the schema file path.
-     *
-     * @return string
-     */
-    abstract protected function getSchemaFile();
 
     /**
      * Load the payload XML into a DOMXPath for querying.
@@ -118,16 +130,13 @@ trait TPayload
     protected function getPayloadAsDoc($xmlString)
     {
         $d = new DOMDocument();
-        $d->loadXML($xmlString);
+        try {
+            $d->loadXML($xmlString);
+        } catch (\Exception $e) {
+            throw $e;
+        }
         return $d;
     }
-
-    /**
-     * The XML namespace for the payload.
-     *
-     * @return string
-     */
-    abstract protected function getXmlNamespace();
 
     /**
      * Get Line1 through Line4 for an Address
@@ -150,13 +159,44 @@ trait TPayload
     }
 
     /**
+     * Additional deserialization of the payload data. May contain any
+     * special case deserialization that cannot be expressed by the supported
+     * deserialization paths. Default implementation is a no-op. Expected to
+     * be overridden by payloads that need it.
+     *
+     * @param string
+     * @return self
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    protected function deserializeExtra($serializedPayload)
+    {
+        return $this;
+    }
+
+    /**
      * convert line item substrings into line item objects
      * @param  string $serializedPayload
      * @return self
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     protected function deserializeLineItems($serializedPayload)
     {
         return $this;
+    }
+
+    /**
+     * Build a new IPayload for the given interface.
+     *
+     * @param string
+     * @return IPayload
+     */
+    protected function buildPayloadForInterface($interface)
+    {
+        return $this->payloadFactory->buildPayload(
+            $this->payloadMap->getConcreteType($interface),
+            $this->payloadMap,
+            $this
+        );
     }
 
     /**
@@ -196,6 +236,22 @@ trait TPayload
         return $canonicalXml;
     }
 
+    public function getParentPayload()
+    {
+        return $this->parentPayload;
+    }
+
+    protected function getAncestorPayloadOfType($type)
+    {
+        $pl = $this;
+        while ($pl = $pl->getParentPayload()) {
+            if ($pl instanceof $type) {
+                return $pl;
+            }
+        }
+        return null;
+    }
+
     /**
      * Return the name of the xml root node.
      *
@@ -217,15 +273,20 @@ trait TPayload
     }
 
     /**
+     * XML Namespace of the document.
+     *
+     * @return string
+     */
+    abstract protected function getXmlNamespace();
+
+    /**
      * Name, value pairs of root attributes
      *
      * @return array
      */
     protected function getRootAttributes()
     {
-        return [
-            'xmlns' => $this->getXmlNamespace(),
-        ];
+        return [];
     }
 
     /**
@@ -234,5 +295,61 @@ trait TPayload
      * @return string
      */
     abstract protected function serializeContents();
+
+    /**
+     * Serialize the value as an xml element with the given node name. When
+     * given an empty value, returns an empty string instead of an empty
+     * element.
+     *
+     * @param string
+     * @param mixed
+     * @return string
+     */
+    protected function serializeOptionalValue($nodeName, $value)
+    {
+        return !is_null($value) ? sprintf('<%s>%s</%1$s>', $nodeName, $value) : '';
+    }
+
+    /**
+     * Serialize the value as an XML attribute with the given name. When
+     * given an empty value, returns an empty string.
+     *
+     * @param string
+     * @param mixed
+     * @return string
+     */
+    protected function serializeOptionalAttribute($attributeName, $value)
+    {
+        return !is_null($value) ? " $attributeName='$value' " : '';
+    }
+
+    /**
+     * Serialize the currency amount as an XML node with the provided name.
+     * When the amount is not set, returns an empty string.
+     *
+     * @param string
+     * @param float
+     * @return string
+     */
+    protected function serializeOptionalAmount($nodeName, $amount)
+    {
+        return !is_null($amount) ? "<$nodeName>{$this->formatAmount($amount)}</$nodeName>" : '';
+    }
+
+    /**
+     * Serialize an optional date time value. When a DateTime value is given,
+     * serialize the DateTime object as an XML node containing the DateTime
+     * formatted with the given format. When no DateTime is given, return
+     * an empty string.
+     *
+     * @param string
+     * @param string
+     * @param DateTime
+     * @return string
+     */
+    protected function serializeOptionalDateValue($nodeName, $format, DateTime $date = null)
+    {
+        return $date ? "<$nodeName>{$date->format($format)}</$nodeName>" : '';
+    }
 }
 

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/eBayEnterprise.html">\eBayEnterprise</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">3136</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">11</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1144646021"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1144646021" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-874377136"></a>
+                                <a href="../namespaces/eBayEnterprise.html" style="margin-left: 30px; padding-left: 0">eBayEnterprise</a>
+            </div>
+            <div id="namespace-874377136" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-345732062"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.html" style="margin-left: 30px; padding-left: 0">RetailOrderManagement</a>
+            </div>
+            <div id="namespace-345732062" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-751068741"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Api.html" style="margin-left: 30px; padding-left: 0">Api</a>
+            </div>
+            <div id="namespace-751068741" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1723350166"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Api.Amqp.html" style="margin-left: 30px; padding-left: 0">Amqp</a>
+            </div>
+            <div id="namespace-1723350166" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.IConnectionConfig.html">IConnectionConfig</a></li>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.AbstractConnectionConfig.html">AbstractConnectionConfig</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.ConnectionConfig.html">ConnectionConfig</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Amqp.SslConnectionConfig.html">SslConnectionConfig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1948232752"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Api.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1948232752" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.ConnectionError.html">ConnectionError</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.NetworkError.html">NetworkError</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.UnsupportedHttpAction.html">UnsupportedHttpAction</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.Exception.UnsupportedOperation.html">UnsupportedOperation</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IAmqpApi.html">IAmqpApi</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IAmqpConfig.html">IAmqpConfig</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IApi.html">IApi</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IBidirectionalApi.html">IBidirectionalApi</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IConfig.html">IConfig</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IHttpConfig.html">IHttpConfig</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.IOmnidirectionalApi.html">IOmnidirectionalApi</a></li>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.AmqpApi.html">AmqpApi</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.AmqpConfig.html">AmqpConfig</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.HttpApi.html">HttpApi</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Api.HttpConfig.html">HttpConfig</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-786197317"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.html" style="margin-left: 30px; padding-left: 0">Payload</a>
+            </div>
+            <div id="namespace-786197317" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-647088940"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Checkout.html" style="margin-left: 30px; padding-left: 0">Checkout</a>
+            </div>
+            <div id="namespace-647088940" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IDestination.html">IDestination</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IDestinationContainer.html">IDestinationContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IDestinationIterable.html">IDestinationIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IInvoiceTextCode.html">IInvoiceTextCode</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IInvoiceTextCodeContainer.html">IInvoiceTextCodeContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IInvoiceTextCodeIterable.html">IInvoiceTextCodeIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IMailingAddress.html">IMailingAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IPersonName.html">IPersonName</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.IPhysicalAddress.html">IPhysicalAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.ITax.html">ITax</a></li>
+                                                                            <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.TDestinationContainer.html">TDestinationContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.TInvoiceTextCodeContainer.html">TInvoiceTextCodeContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.TPersonName.html">TPersonName</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.TPhysicalAddress.html">TPhysicalAddress</a></li>
+                                                                            <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.InvoiceTextCode.html">InvoiceTextCode</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.InvoiceTextCodeIterable.html">InvoiceTextCodeIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.MailingAddress.html">MailingAddress</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Checkout.Tax.html">Tax</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1315799504"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Exception.html" style="margin-left: 30px; padding-left: 0">Exception</a>
+            </div>
+            <div id="namespace-1315799504" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.InvalidPayload.html">InvalidPayload</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.Payload.html">Payload</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.UnexpectedResponse.html">UnexpectedResponse</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Exception.UnsupportedPayload.html">UnsupportedPayload</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-232608607"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Order.html" style="margin-left: 30px; padding-left: 0">Order</a>
+            </div>
+            <div id="namespace-232608607" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IBrowserData.html">IBrowserData</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICardPayment.html">ICardPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICreditCardPayment.html">ICreditCardPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomAttribute.html">ICustomAttribute</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomAttributeContainer.html">ICustomAttributeContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomAttributeIterable.html">ICustomAttributeIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomerSessionInfo.html">ICustomerSessionInfo</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomization.html">ICustomization</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomizationContainer.html">ICustomizationContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomizationInstruction.html">ICustomizationInstruction</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomizationInstructionContainer.html">ICustomizationInstructionContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomizationInstructionIterable.html">ICustomizationInstructionIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ICustomizationIterable.html">ICustomizationIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IDestination.html">IDestination</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IDiscount.html">IDiscount</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IDiscountContainer.html">IDiscountContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IDiscountIterable.html">IDiscountIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IEmailAddressDestination.html">IEmailAddressDestination</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IEstimatedDeliveryDate.html">IEstimatedDeliveryDate</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IFee.html">IFee</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IFeeContainer.html">IFeeContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IFeeIterable.html">IFeeIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IGifting.html">IGifting</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IItemCustomization.html">IItemCustomization</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IItemRelationship.html">IItemRelationship</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IItemRelationshipContainer.html">IItemRelationshipContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IItemRelationshipIterable.html">IItemRelationshipIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ILoyaltyProgram.html">ILoyaltyProgram</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ILoyaltyProgramContainer.html">ILoyaltyProgramContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ILoyaltyProgramIterable.html">ILoyaltyProgramIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IMailingAddress.html">IMailingAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.INamedDeliveryDate.html">INamedDeliveryDate</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderContext.html">IOrderContext</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderContextCustomAttributeContainer.html">IOrderContextCustomAttributeContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderCreate.html">IOrderCreate</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderCreateReply.html">IOrderCreateReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderCreateRequest.html">IOrderCreateRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderCustomer.html">IOrderCustomer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderDestinationIterable.html">IOrderDestinationIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderHold.html">IOrderHold</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderHoldContainer.html">IOrderHoldContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderHoldIterable.html">IOrderHoldIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItem.html">IOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemContainer.html">IOrderItemContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemDescription.html">IOrderItemDescription</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemIterable.html">IOrderItemIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemReference.html">IOrderItemReference</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemReferenceContainer.html">IOrderItemReferenceContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemReferenceIterable.html">IOrderItemReferenceIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPayment.html">IPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPaymentContainer.html">IPaymentContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPaymentContext.html">IPaymentContext</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPaymentIterable.html">IPaymentIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPayPalPayerInfo.html">IPayPalPayerInfo</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPayPalPayment.html">IPayPalPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPointsPayment.html">IPointsPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPrepaidCashOnDeliveryPayment.html">IPrepaidCashOnDeliveryPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPrepaidCreditCardPayment.html">IPrepaidCreditCardPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPrepaidPayment.html">IPrepaidPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IPriceGroup.html">IPriceGroup</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IProductDescription.html">IProductDescription</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IProxyPickupDetails.html">IProxyPickupDetails</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IReservationPayment.html">IReservationPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IShipGroup.html">IShipGroup</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IShipGroupContainer.html">IShipGroupContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IShipGroupIterable.html">IShipGroupIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IStoredValueCardPayment.html">IStoredValueCardPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IStoreFrontDetails.html">IStoreFrontDetails</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IStoreLocation.html">IStoreLocation</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ITax.html">ITax</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ITaxContainer.html">ITaxContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ITaxIterable.html">ITaxIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ITemplate.html">ITemplate</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ITemplateContainer.html">ITemplateContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ITemplateIterable.html">ITemplateIterable</a></li>
+                                                                            <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TBrowserData.html">TBrowserData</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TCardPayment.html">TCardPayment</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TCustomAttributeContainer.html">TCustomAttributeContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TCustomerSessionInfo.html">TCustomerSessionInfo</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TCustomizationContainer.html">TCustomizationContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TCustomizationInstructionContainer.html">TCustomizationInstructionContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TDestination.html">TDestination</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TDiscountContainer.html">TDiscountContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TEstimatedDeliveryDate.html">TEstimatedDeliveryDate</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TFeeContainer.html">TFeeContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TGifting.html">TGifting</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TItemCustomization.html">TItemCustomization</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TItemRelationshipContainer.html">TItemRelationshipContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TLoyaltyProgramContainer.html">TLoyaltyProgramContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TNamedDeliveryDate.html">TNamedDeliveryDate</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TOrderContext.html">TOrderContext</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TOrderContextCustomAttributeContainer.html">TOrderContextCustomAttributeContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TOrderCustomer.html">TOrderCustomer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TOrderHoldContainer.html">TOrderHoldContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TOrderItemContainer.html">TOrderItemContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TOrderItemDescription.html">TOrderItemDescription</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TOrderItemReferenceContainer.html">TOrderItemReferenceContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TPaymentContainer.html">TPaymentContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TPaymentContext.html">TPaymentContext</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TPayPalPayerInfo.html">TPayPalPayerInfo</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TProductDescription.html">TProductDescription</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TShipGroupContainer.html">TShipGroupContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TTaxContainer.html">TTaxContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TTemplateContainer.html">TTemplateContainer</a></li>
+                                                                            <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.CreditCardPayment.html">CreditCardPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.CustomAttribute.html">CustomAttribute</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.CustomAttributeIterable.html">CustomAttributeIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.Customization.html">Customization</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.CustomizationInstruction.html">CustomizationInstruction</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.CustomizationInstructionIterable.html">CustomizationInstructionIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.CustomizationIterable.html">CustomizationIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.Discount.html">Discount</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.DiscountIterable.html">DiscountIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.EmailAddressDestination.html">EmailAddressDestination</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.Fee.html">Fee</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.FeeIterable.html">FeeIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ItemRelationship.html">ItemRelationship</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ItemRelationshipIterable.html">ItemRelationshipIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.LoyaltyProgram.html">LoyaltyProgram</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.LoyaltyProgramIterable.html">LoyaltyProgramIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.MailingAddress.html">MailingAddress</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderCreateReply.html">OrderCreateReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderCreateRequest.html">OrderCreateRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderDestinationIterable.html">OrderDestinationIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderHold.html">OrderHold</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderHoldIterable.html">OrderHoldIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderItem.html">OrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderItemIterable.html">OrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderItemReference.html">OrderItemReference</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.OrderItemReferenceIterable.html">OrderItemReferenceIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.PaymentIterable.html">PaymentIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.PayPalPayment.html">PayPalPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.PointsPayment.html">PointsPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.PrepaidCashOnDeliveryPayment.html">PrepaidCashOnDeliveryPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.PrepaidCreditCardPayment.html">PrepaidCreditCardPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.PrepaidPayment.html">PrepaidPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.PriceGroup.html">PriceGroup</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ProxyPickupDetails.html">ProxyPickupDetails</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ReservationPayment.html">ReservationPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ShipGroup.html">ShipGroup</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.ShipGroupIterable.html">ShipGroupIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.StoredValueCardPayment.html">StoredValueCardPayment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.StoreFrontDetails.html">StoreFrontDetails</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.StoreLocation.html">StoreLocation</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.Tax.html">Tax</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TaxIterable.html">TaxIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.Template.html">Template</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.TemplateIterable.html">TemplateIterable</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1363254096"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.html" style="margin-left: 30px; padding-left: 0">OrderEvents</a>
+            </div>
+            <div id="namespace-1363254096" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IAcceptedOrderItem.html">IAcceptedOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IAdjustedOrderItem.html">IAdjustedOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IAdjustedOrderItemContainer.html">IAdjustedOrderItemContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IAdjustedOrderItemIterable.html">IAdjustedOrderItemIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IBackOrderShipGroup.html">IBackOrderShipGroup</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ICancelledOrderItem.html">ICancelledOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ICreditOrderItem.html">ICreditOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ICurrency.html">ICurrency</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ICustomAttribute.html">ICustomAttribute</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ICustomAttributeContainer.html">ICustomAttributeContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ICustomAttributeIterable.html">ICustomAttributeIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ICustomer.html">ICustomer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IDeliveryWindow.html">IDeliveryWindow</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IDestination.html">IDestination</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IEddMessage.html">IEddMessage</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IGiftCardActivation.html">IGiftCardActivation</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IGiftCardActivationContainer.html">IGiftCardActivationContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IGiftCardActivationIterable.html">IGiftCardActivationIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IItemPriceAdjustment.html">IItemPriceAdjustment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IItemPriceAdjustmentContainer.html">IItemPriceAdjustmentContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IItemPriceAdjustmentIterable.html">IItemPriceAdjustmentIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IItemShipping.html">IItemShipping</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ILoyaltyProgram.html">ILoyaltyProgram</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ILoyaltyProgramContainer.html">ILoyaltyProgramContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ILoyaltyProgramCustomer.html">ILoyaltyProgramCustomer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ILoyaltyProgramIterable.html">ILoyaltyProgramIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IMailingAddress.html">IMailingAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderAccepted.html">IOrderAccepted</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderBackorder.html">IOrderBackorder</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderCancel.html">IOrderCancel</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderConfirmed.html">IOrderConfirmed</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderCreditIssued.html">IOrderCreditIssued</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderEvent.html">IOrderEvent</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderGiftCardActivation.html">IOrderGiftCardActivation</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderItem.html">IOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderItemContainer.html">IOrderItemContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderItemDescription.html">IOrderItemDescription</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderItemIterable.html">IOrderItemIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderPriceAdjustment.html">IOrderPriceAdjustment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderRejected.html">IOrderRejected</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderReturnInTransit.html">IOrderReturnInTransit</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IOrderShipped.html">IOrderShipped</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPayment.html">IPayment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPaymentContainer.html">IPaymentContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPaymentIterable.html">IPaymentIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPerformedAdjustment.html">IPerformedAdjustment</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPerformedAdjustmentContainer.html">IPerformedAdjustmentContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPerformedAdjustmentIterable.html">IPerformedAdjustmentIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPersonName.html">IPersonName</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPhysicalAddress.html">IPhysicalAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IPricedOrderItem.html">IPricedOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IProductDescription.html">IProductDescription</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IProductPrice.html">IProductPrice</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IReturnAmount.html">IReturnAmount</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IReturnedItem.html">IReturnedItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IReturnSummary.html">IReturnSummary</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IShipGroup.html">IShipGroup</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IShipGroupContainer.html">IShipGroupContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IShipGroupIterable.html">IShipGroupIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IShippedAmounts.html">IShippedAmounts</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IShippedItem.html">IShippedItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IShippedOrderItem.html">IShippedOrderItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IShopRunnerMessage.html">IShopRunnerMessage</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.IStoreFrontDetails.html">IStoreFrontDetails</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ISummaryAmounts.html">ISummaryAmounts</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITaxDescription.html">ITaxDescription</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITaxDescriptionContainer.html">ITaxDescriptionContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITaxDescriptionIterable.html">ITaxDescriptionIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITestMessage.html">ITestMessage</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITrackingNumber.html">ITrackingNumber</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITrackingNumberContainer.html">ITrackingNumberContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ITrackingNumberIterable.html">ITrackingNumberIterable</a></li>
+                                                                            <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TCurrency.html">TCurrency</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TCustomAttributeContainer.html">TCustomAttributeContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TCustomer.html">TCustomer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TDeliveryWindow.html">TDeliveryWindow</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TGiftCardActivationContainer.html">TGiftCardActivationContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TItemShipping.html">TItemShipping</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TLoyaltyProgramContainer.html">TLoyaltyProgramContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TLoyaltyProgramCustomer.html">TLoyaltyProgramCustomer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TOrderEvent.html">TOrderEvent</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TOrderItemContainer.html">TOrderItemContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TOrderItemDescription.html">TOrderItemDescription</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TPaymentContainer.html">TPaymentContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TPersonName.html">TPersonName</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TPhysicalAddress.html">TPhysicalAddress</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TPriceAdjustmentContainer.html">TPriceAdjustmentContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TProductPrice.html">TProductPrice</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TReturnSummary.html">TReturnSummary</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TShipGroup.html">TShipGroup</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TShipGroupContainer.html">TShipGroupContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TShippedAmounts.html">TShippedAmounts</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TShippedItem.html">TShippedItem</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TShopRunnerMessage.html">TShopRunnerMessage</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TSummaryAmounts.html">TSummaryAmounts</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TTaxDescriptionContainer.html">TTaxDescriptionContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TTrackingNumberContainer.html">TTrackingNumberContainer</a></li>
+                                                                            <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.AcceptedOrderItem.html">AcceptedOrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.AcceptedOrderItemIterable.html">AcceptedOrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.AdjustedOrderItem.html">AdjustedOrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.AdjustedOrderItemIterable.html">AdjustedOrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.BackOrderItemIterable.html">BackOrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.BackOrderShipGroup.html">BackOrderShipGroup</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.CancelledOrderItem.html">CancelledOrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.CancelledOrderItemIterable.html">CancelledOrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.CreditOrderItem.html">CreditOrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.CreditOrderItemIterable.html">CreditOrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.CustomAttribute.html">CustomAttribute</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.CustomAttributeIterable.html">CustomAttributeIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.EddMessage.html">EddMessage</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.GiftCardActivation.html">GiftCardActivation</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.GiftCardActivationIterable.html">GiftCardActivationIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ItemPriceAdjustment.html">ItemPriceAdjustment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ItemPriceAdjustmentIterable.html">ItemPriceAdjustmentIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.LoyaltyProgram.html">LoyaltyProgram</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.LoyaltyProgramIterable.html">LoyaltyProgramIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.MailingAddress.html">MailingAddress</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderAccepted.html">OrderAccepted</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderAcceptedPaymentIterable.html">OrderAcceptedPaymentIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderBackorder.html">OrderBackorder</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderCancel.html">OrderCancel</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderConfirmed.html">OrderConfirmed</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderConfirmedOrderItemIterable.html">OrderConfirmedOrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderConfirmedPaymentIterable.html">OrderConfirmedPaymentIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderConfirmedShipGroup.html">OrderConfirmedShipGroup</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderCreditIssued.html">OrderCreditIssued</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderGiftCardActivation.html">OrderGiftCardActivation</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderItem.html">OrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderItemIterable.html">OrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderPriceAdjustment.html">OrderPriceAdjustment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderRejected.html">OrderRejected</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderReturnInTransit.html">OrderReturnInTransit</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.OrderShipped.html">OrderShipped</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.Payment.html">Payment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.PaymentIterable.html">PaymentIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.PerformedAdjustment.html">PerformedAdjustment</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.PerformedAdjustmentIterable.html">PerformedAdjustmentIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.PricedOrderItem.html">PricedOrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ShipGroupIterable.html">ShipGroupIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ShippedOrderItem.html">ShippedOrderItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.ShippedOrderItemIterable.html">ShippedOrderItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.StoreFrontDetails.html">StoreFrontDetails</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TaxDescription.html">TaxDescription</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TaxDescriptionIterable.html">TaxDescriptionIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TestMessage.html">TestMessage</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TrackingNumber.html">TrackingNumber</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OrderEvents.TrackingNumberIterable.html">TrackingNumberIterable</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1961021466"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Payment.html" style="margin-left: 30px; padding-left: 0">Payment</a>
+            </div>
+            <div id="namespace-1961021466" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IBillingAddress.html">IBillingAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICreditCardAuth.html">ICreditCardAuth</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICreditCardAuthReply.html">ICreditCardAuthReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICreditCardAuthRequest.html">ICreditCardAuthRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ICurrencyCode.html">ICurrencyCode</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ILineItem.html">ILineItem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ILineItemContainer.html">ILineItemContainer</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.ILineItemIterable.html">ILineItemIterable</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IOrderId.html">IOrderId</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPaymentAccountUniqueId.html">IPaymentAccountUniqueId</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPaymentContext.html">IPaymentContext</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPaymentInfo.html">IPaymentInfo</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoAuthorization.html">IPayPalDoAuthorization</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoAuthorizationReply.html">IPayPalDoAuthorizationReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoAuthorizationRequest.html">IPayPalDoAuthorizationRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoExpressCheckout.html">IPayPalDoExpressCheckout</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoExpressCheckoutReply.html">IPayPalDoExpressCheckoutReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoExpressCheckoutRequest.html">IPayPalDoExpressCheckoutRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoVoid.html">IPayPalDoVoid</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoVoidReply.html">IPayPalDoVoidReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalDoVoidRequest.html">IPayPalDoVoidRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalGetExpressCheckout.html">IPayPalGetExpressCheckout</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalGetExpressCheckoutReply.html">IPayPalGetExpressCheckoutReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalGetExpressCheckoutRequest.html">IPayPalGetExpressCheckoutRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalSetExpressCheckout.html">IPayPalSetExpressCheckout</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalSetExpressCheckoutReply.html">IPayPalSetExpressCheckoutReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IPayPalSetExpressCheckoutRequest.html">IPayPalSetExpressCheckoutRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IShippingAddress.html">IShippingAddress</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueBalance.html">IStoredValueBalance</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueBalanceReply.html">IStoredValueBalanceReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueBalanceRequest.html">IStoredValueBalanceRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeem.html">IStoredValueRedeem</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemReply.html">IStoredValueRedeemReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemRequest.html">IStoredValueRedeemRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemVoid.html">IStoredValueRedeemVoid</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemVoidReply.html">IStoredValueRedeemVoidReply</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IStoredValueRedeemVoidRequest.html">IStoredValueRedeemVoidRequest</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.IToken.html">IToken</a></li>
+                                                                            <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TAmount.html">TAmount</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TBillingAddress.html">TBillingAddress</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TCurrencyCode.html">TCurrencyCode</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TLineItemContainer.html">TLineItemContainer</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TOrderId.html">TOrderId</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentAccountUniqueId.html">TPaymentAccountUniqueId</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentContext.html">TPaymentContext</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPaymentInfo.html">TPaymentInfo</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TPayPalPaymentInfo.html">TPayPalPaymentInfo</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TShippingAddress.html">TShippingAddress</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TStrings.html">TStrings</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.TToken.html">TToken</a></li>
+                                                                            <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.CreditCardAuthReply.html">CreditCardAuthReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.CreditCardAuthRequest.html">CreditCardAuthRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.LineItem.html">LineItem</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.LineItemIterable.html">LineItemIterable</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoAuthorizationReply.html">PayPalDoAuthorizationReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoAuthorizationRequest.html">PayPalDoAuthorizationRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoExpressCheckoutReply.html">PayPalDoExpressCheckoutReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoExpressCheckoutRequest.html">PayPalDoExpressCheckoutRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoVoidReply.html">PayPalDoVoidReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalDoVoidRequest.html">PayPalDoVoidRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalGetExpressCheckoutReply.html">PayPalGetExpressCheckoutReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalGetExpressCheckoutRequest.html">PayPalGetExpressCheckoutRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalSetExpressCheckoutReply.html">PayPalSetExpressCheckoutReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.PayPalSetExpressCheckoutRequest.html">PayPalSetExpressCheckoutRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueBalanceReply.html">StoredValueBalanceReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueBalanceRequest.html">StoredValueBalanceRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemReply.html">StoredValueRedeemReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemRequest.html">StoredValueRedeemRequest</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidReply.html">StoredValueRedeemVoidReply</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Payment.StoredValueRedeemVoidRequest.html">StoredValueRedeemVoidRequest</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1486504716"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Validator.html" style="margin-left: 30px; padding-left: 0">Validator</a>
+            </div>
+            <div id="namespace-1486504716" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-415747493"></a>
+                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Validator.Order.html" style="margin-left: 30px; padding-left: 0">Order</a>
+            </div>
+            <div id="namespace-415747493" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.Order.OrderCreateReferences.html">OrderCreateReferences</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.IterablePayload.html">IterablePayload</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.OptionalGroup.html">OptionalGroup</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.OptionalSubpayloads.html">OptionalSubpayloads</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.RequiredFields.html">RequiredFields</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.Subpayloads.html">Subpayloads</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.XmlValidator.html">XmlValidator</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Validator.XsdSchemaValidator.html">XsdSchemaValidator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IBidirectionalMessageFactory.html">IBidirectionalMessageFactory</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IIdentity.html">IIdentity</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IMessageFactory.html">IMessageFactory</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayload.html">IPayload</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayloadFactory.html">IPayloadFactory</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayloadIterator.html">IPayloadIterator</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IPayloadMap.html">IPayloadMap</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.ISchemaValidator.html">ISchemaValidator</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IValidator.html">IValidator</a></li>
+                                                    <li class="interface"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.IValidatorIterator.html">IValidatorIterator</a></li>
+                                                                            <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TIdentity.html">TIdentity</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TIterablePayload.html">TIterablePayload</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TPayload.html">TPayload</a></li>
+                                                    <li class="trait"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.TTopLevelPayload.html">TTopLevelPayload</a></li>
+                                                                            <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.AmqpPayloadIterator.html">AmqpPayloadIterator</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.BidirectionalMessageFactory.html">BidirectionalMessageFactory</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.OmnidirectionalMessageFactory.html">OmnidirectionalMessageFactory</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.PayloadFactory.html">PayloadFactory</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.PayloadMap.html">PayloadMap</a></li>
+                                                    <li class="class"><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.ValidatorIterator.html">ValidatorIterator</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/eBayEnterprise.RetailOrderManagement.Payload.Order.html">\eBayEnterprise\RetailOrderManagement\Payload\Order</a>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\eBayEnterprise\RetailOrderManagement\Payload\Order</small>IOrderItemContainer</h1>
+                    <p><em></em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span6">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span6">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span6">
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemContainer.html#method_getOrderItems">getOrderItems()</a><br />
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemContainer.html#method_setOrderItems">setOrderItems()</a><br />
+                                                            </section>
+                            <section class="span6">
+                                                                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemContainer.html#constant_ORDER_ITEM_ITERABLE_INTERFACE">ORDER_ITEM_ITERABLE_INTERFACE</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span6">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span6">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span6">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span6">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        <dl>
+                        <dt>File</dt>
+                            <dd>
+                                <a href="../files/Payload.Order.IOrderItemContainer.html"><div class="path-wrapper">Payload/Order/IOrderItemContainer.php</div></a>
+                            </dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\Default</div></dd>
+                                                
+                                            </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                            <a id="constants" name="constants"></a>
+                <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_ORDER_ITEM_ITERABLE_INTERFACE" name="constant_ORDER_ITEM_ITERABLE_INTERFACE" class="anchor"></a>
+            <article id="constant_ORDER_ITEM_ITERABLE_INTERFACE" class="constant">
+                <h3 class="">ORDER_ITEM_ITERABLE_INTERFACE</h3>
+                <pre class="signature">ORDER_ITEM_ITERABLE_INTERFACE</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                        <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Methods</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getOrderItems" name="method_getOrderItems" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getOrderItems()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getOrderItems() : \eBayEnterprise\RetailOrderManagement\Payload\Order\IOrderItemIterable</pre>
+                <p><em>Get all order items associated with the order.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemIterable.html">\eBayEnterprise\RetailOrderManagement\Payload\Order\IOrderItemIterable</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setOrderItems" name="method_setOrderItems" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setOrderItems()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setOrderItems(\eBayEnterprise\RetailOrderManagement\Payload\Order\IOrderItemIterable  <span class="argument">$items</span>) : self</pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/eBayEnterprise.RetailOrderManagement.Payload.Order.IOrderItemIterable.html">\eBayEnterprise\RetailOrderManagement\Payload\Order\IOrderItemIterable</a></td>
+                                <td>$items </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    self
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">IOrderItemContainer.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Payload/Order/IOrderItemContainer.php.txt" class="language-php"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/eBayEnterprise.html">\eBayEnterprise</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on February 13th, 2015 at 09:31.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
